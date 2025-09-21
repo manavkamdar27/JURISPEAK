@@ -1,26 +1,242 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #2f2879;
+  --navy: #2f2879;
+  --gold: #817d7b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--navy);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--navy);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #274260;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-navy-900 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-navy-800 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply border-2 border-navy-900 text-navy-900 px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-navy-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-card border border-slate-200 p-6 transition-all duration-200 hover:shadow-lg;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all duration-200;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all duration-200 resize-y;
+}
+
+.form-select {
+  @apply w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all duration-200 bg-white;
+}
+
+/* Typography */
+.heading-1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-navy-900 leading-tight;
+}
+
+.heading-2 {
+  @apply text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy-900 leading-tight;
+}
+
+.heading-3 {
+  @apply text-2xl md:text-3xl font-serif font-semibold text-navy-900 leading-tight;
+}
+
+.heading-4 {
+  @apply text-xl md:text-2xl font-serif font-semibold text-navy-900 leading-tight;
+}
+
+.body-large {
+  @apply text-lg text-slate-700 leading-relaxed;
+}
+
+.body-text {
+  @apply text-base text-slate-700 leading-relaxed;
+}
+
+.body-small {
+  @apply text-sm text-slate-600 leading-relaxed;
+}
+
+/* Theming overrides for alternating section backgrounds */
+.theme-blue {
+  background-color: var(--navy);
+}
+.theme-gray {
+  background-color: var(--gold);
+}
+
+/* Background image utility for a law-themed section */
+.bg-image-law {
+  background-image: url('https://images.unsplash.com/photo-1528747045269-390fe33c19b3?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-image-services {
+  background-image: url('/image_2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Allow theme-blue wrappers to have no background when layered over images */
+.theme-blue.no-bg {
+  background-color: transparent;
+}
+
+/* On blue background: make text gray for readability */
+.theme-blue .heading-1,
+.theme-blue .heading-2,
+.theme-blue .heading-3,
+.theme-blue .heading-4,
+.theme-blue .body-large,
+.theme-blue .body-text,
+.theme-blue .body-small,
+.theme-blue .text-navy-900 {
+  color: var(--gold) !important;
+}
+
+/* On gray background: make body text blue for contrast */
+.theme-gray .heading-1,
+.theme-gray .heading-2,
+.theme-gray .heading-3,
+.theme-gray .heading-4,
+.theme-gray .body-large,
+.theme-gray .body-text,
+.theme-gray .body-small,
+.theme-gray .text-slate-700,
+.theme-gray .text-slate-600,
+.theme-gray .text-slate-500 {
+  color: var(--navy) !important;
+}
+
+/* Force white text for specific elements within blue sections */
+.theme-blue .force-white .heading-1,
+.theme-blue .force-white .heading-2,
+.theme-blue .force-white .heading-3,
+.theme-blue .force-white .heading-4,
+.theme-blue .force-white .body-large,
+.theme-blue .force-white .body-text,
+.theme-blue .force-white .body-small,
+.theme-blue .force-white .text-navy-900,
+.theme-blue .force-white .text-slate-700,
+.theme-blue .force-white .text-slate-600 {
+  color: #ffffff !important;
+}
+
+/* Force navy text within blue sections when needed */
+.theme-blue .force-navy {
+  color: var(--navy) !important;
+}
+
+/* Force navy text regardless of theme wrapper */
+.force-navy .heading-1,
+.force-navy .heading-2,
+.force-navy .heading-3,
+.force-navy .heading-4,
+.force-navy .body-large,
+.force-navy .body-text,
+.force-navy .body-small,
+.force-navy .text-slate-700,
+.force-navy .text-slate-600,
+.force-navy .text-slate-500 {
+  color: var(--navy) !important;
+}
+
+/* Force white text regardless of theme wrapper */
+.force-white .heading-1,
+.force-white .heading-2,
+.force-white .heading-3,
+.force-white .heading-4,
+.force-white .body-large,
+.force-white .body-text,
+.force-white .body-small,
+.force-white .text-navy-900,
+.force-white .text-slate-700,
+.force-white .text-slate-600 {
+  color: #ffffff !important;
 }
