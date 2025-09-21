@@ -62,6 +62,7 @@ const AboutSection = () => {
     {
       icon: Users,
       title: 'Client First',
+      // eslint-disable-next-line react/no-unescaped-entities
       description: 'We prioritize our clients\' needs and maintain open communication throughout every case, ensuring they feel supported and informed.'
     },
     {
