@@ -24,7 +24,7 @@ export default function DisclaimerModal() {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] bg-white text-navy-900 flex items-center justify-center px-4"
+      className="fixed inset-0 z-[9999] bg-navy-900/30 backdrop-blur-md text-navy-900 flex items-center justify-center px-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="disclaimer-title"

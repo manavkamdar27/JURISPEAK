@@ -28,10 +28,22 @@ const Navigation = () => {
 
   const handleLinkClick = (href: string) => {
     setIsMenuOpen(false);
+    if (href === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     if (href.startsWith('#')) {
-      const element = document.querySelector(href);
+      const element = document.querySelector<HTMLElement>(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const nav = document.querySelector<HTMLElement>('nav[aria-label="Main navigation"]');
+        const offset = (nav?.offsetHeight ?? 0) + 16;
+        const targetPosition = Math.max(
+          element.getBoundingClientRect().top + window.scrollY - offset,
+          0
+        );
+
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       }
     }
   };
@@ -83,12 +95,6 @@ const Navigation = () => {
                     {link.label}
                   </button>
                 ))}
-                <button
-                  onClick={() => handleLinkClick('#contact')}
-                  className="btn-primary ml-4"
-                >
-                  Free Consultation
-                </button>
               </div>
             </div>
 
@@ -130,12 +136,6 @@ const Navigation = () => {
                 {link.label}
               </button>
             ))}
-            <button
-              onClick={() => handleLinkClick('#contact')}
-              className="btn-primary w-full mt-4"
-            >
-              Free Consultation
-            </button>
           </div>
         </div>
       </nav>

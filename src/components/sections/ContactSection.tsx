@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, CheckCircle, AlertCircle, Send } from 'lucide-react';
+import { CheckCircle, AlertCircle, Send } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -24,44 +24,6 @@ const ContactSection = () => {
     'Billing Inquiry',
     'General Question',
     'Other'
-  ];
-
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: 'Office Address',
-      details: [
-        'Office No. 101, E-Wing, Prashal,',
-        'Sant Janabai Road, Vile Parle (E),',
-        'Mumbai - 400 057'
-      ],
-      link: 'https://maps.google.com/?q=Office+No.+101,+E-Wing,+Prashal,+Sant+Janabai+Road,+Vile+Parle+(E),+Mumbai+-+400+057'
-    },
-    {
-      icon: Phone,
-      title: 'Phone Numbers',
-      details: [
-        'Mobile: +91-98197 27270',
-        'Landline: +91(22) 3574 7532'
-      ],
-      link: 'tel:+919819727270'
-    },
-    {
-      icon: Mail,
-      title: 'Email Address',
-      details: ['mail@jurispeak.co.in'],
-      link: 'mailto:mail@jurispeak.co.in'
-    },
-    {
-      icon: Clock,
-      title: 'Office Hours',
-      details: [
-        'Monday - Friday: 9:00 AM - 6:00 PM',
-        'Saturday: 9:00 AM - 1:00 PM',
-        'Sunday: Closed'
-      ],
-      link: null
-    }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -165,10 +127,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 force-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="text-center mb-16 force-white">
+        <div className="text-center mb-16">
           <h2 className="heading-2 mb-6">Contact Us</h2>
           <p className="body-large max-w-3xl mx-auto">
             Ready to discuss your legal needs? Get in touch with our experienced team 
@@ -176,10 +138,8 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left column - Contact form */}
-          <div>
-            <div className="bg-white rounded-2xl p-8 text-slate-700">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white rounded-2xl p-8 text-slate-700">
               <h3 className="heading-3 mb-6 force-navy">Send Us a Message</h3>
 
               {submitStatus === 'success' && (
@@ -367,68 +327,6 @@ const ContactSection = () => {
                   For sensitive legal matters, please call us directly or schedule an in-person consultation.
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Right column - Contact info and map */}
-          <div className="space-y-8">
-            {/* Contact Information */}
-            <div className="force-white">
-              <h3 className="heading-3 mb-6">Get in Touch</h3>
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-navy-900 mb-2">{info.title}</h4>
-                      {info.link ? (
-                        <a
-                          href={info.link}
-                          className="body-text hover:text-gold-500 transition-colors duration-200"
-                        >
-                          {info.details.map((detail, idx) => (
-                            <div key={idx}>{detail}</div>
-                          ))}
-                        </a>
-                      ) : (
-                        <div className="body-text">
-                          {info.details.map((detail, idx) => (
-                            <div key={idx}>{detail}</div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Map Embed */}
-            <div>
-              <div className="force-white">
-                <h3 className="heading-3 mb-6">Find Us</h3>
-              </div>
-              <div className="bg-slate-200 rounded-lg h-64 flex items-center justify-center">
-                <div className="text-center text-slate-600">
-                  <MapPin className="w-12 h-12 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Google Maps Embed</p>
-                  <p className="text-sm">Office No. 101, E-Wing, Prashal</p>
-                  <p className="text-sm">Sant Janabai Road, Vile Parle (E), Mumbai - 400 057</p>
-                  <a
-                    href="https://maps.google.com/?q=Office+No.+101,+E-Wing,+Prashal,+Sant+Janabai+Road,+Vile+Parle+(E),+Mumbai+-+400+057"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 px-4 py-2 bg-gold-500 text-navy-900 rounded-lg hover:bg-gold-600 transition-colors duration-200"
-                  >
-                    Open in Google Maps
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            
           </div>
         </div>
       </div>

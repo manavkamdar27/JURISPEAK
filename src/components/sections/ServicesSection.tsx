@@ -193,26 +193,7 @@ const ServicesSection = () => {
         {/* FAQ Section removed */}
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 md:p-12">
-            <h3 className="heading-3 mb-4 text-navy-900">Need Legal Assistance?</h3>
-            <p className="body-large mb-8 max-w-2xl mx-auto text-slate-700">
-              Don&apos;t see your specific legal need listed? We handle a wide range of legal matters 
-              and can provide guidance on various legal issues. Contact us for a free consultation.
-            </p>
-            <button
-              onClick={() => {
-                const element = document.querySelector('#contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="btn-primary bg-gold-500 hover:bg-gold-500 text-navy-900 px-8 py-4 text-lg font-semibold"
-            >
-              Get Free Consultation
-            </button>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

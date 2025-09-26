@@ -14,8 +14,8 @@ export default function Home() {
       <main id="main-content">
         {/* About with a law-themed background image and navy overlay */}
         <div className="relative bg-image-law">
-          <div className="absolute inset-0 bg-navy-900/60" />
-          <div className="relative theme-blue">
+          <div className="absolute inset-0 bg-navy-900/35" />
+          <div className="relative theme-blue theme-blue-light">
             <AboutSection />
           </div>
         </div>
@@ -26,10 +26,13 @@ export default function Home() {
         <div className="bg-navy-900/90">
           <TeamSection />
         </div>
-        <div className="bg-gold-500 theme-gray">
-          <CareersSection />
+        <div className="relative bg-image-law">
+          <div className="absolute inset-0 bg-navy-900/35" />
+          <div className="relative theme-blue theme-blue-light">
+            <CareersSection />
+          </div>
         </div>
-        <div className="bg-navy-900 theme-blue">
+        <div className="bg-[rgba(129,125,123,0.20)]">
           <ContactSection />
         </div>
       </main>
