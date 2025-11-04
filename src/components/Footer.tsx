@@ -13,12 +13,6 @@ const Footer = () => {
     { href: '#contact', label: 'Contact' },
   ];
 
-  const legalLinks = [
-    { href: '/privacy', label: 'Privacy Policy' },
-    { href: '/terms', label: 'Terms of Service' },
-    { href: '/accessibility', label: 'Accessibility Statement' },
-  ];
-
   const handleLinkClick = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.querySelector<HTMLElement>(href);
@@ -36,9 +30,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-navy-900/90 text-white" role="contentinfo">
+    <footer className="bg-[rgba(129,125,123,0.20)] text-navy-900 force-navy" role="contentinfo">
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 force-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 force-navy">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-4 lg:gap-x-5">
           {/* Company info */}
           <div className="lg:col-span-1">
@@ -52,7 +46,7 @@ const Footer = () => {
                 priority
               />
             </div>
-            <p className="mb-4 leading-relaxed">
+            <p className="mb-4 leading-relaxed text-navy-900">
               Premier legal services in Mumbai, delivering excellence in advocacy and consultation 
               with unwavering commitment to our clients&apos; success.
             </p>
@@ -61,7 +55,7 @@ const Footer = () => {
                 href="https://linkedin.com/company/jurispeak"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gold-500 transition-colors"
+                className="text-navy-900 hover:text-gold-500 transition-colors"
               aria-label="Follow us on LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -70,7 +64,7 @@ const Footer = () => {
                 href="https://twitter.com/jurispeak"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gold-500 transition-colors"
+                className="text-navy-900 hover:text-gold-500 transition-colors"
               aria-label="Follow us on Twitter"
               >
                 <Twitter className="w-5 h-5" />
@@ -86,7 +80,7 @@ const Footer = () => {
                 <li key={link.href}>
                   <button
                     onClick={() => handleLinkClick(link.href)}
-                    className="text-white hover:text-gold-500 transition-colors"
+                    className="text-navy-900 hover:text-gold-500 transition-colors"
                   >
                     {link.label}
                   </button>
@@ -103,7 +97,7 @@ const Footer = () => {
                 <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-4">
                   <div className="flex items-start space-x-3 sm:flex-1">
                     <MapPin className="w-5 h-5 text-gold-500 mt-0.5 flex-shrink-0" />
-                    <div className="text-slate-700 text-sm">
+                    <div className="text-navy-900 text-sm">
                       <div>Office No. 101, E-Wing, Prashal,</div>
                       <div>Sant Janabai Road, Vile Parle (E),</div>
                       <div>Mumbai - 400 057</div>
@@ -134,7 +128,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-gold-500 flex-shrink-0" />
                 <a 
                   href="tel:+919819727270" 
-                  className="text-white hover:text-gold-500 transition-colors"
+                  className="text-navy-900 hover:text-gold-500 transition-colors"
                 >
                   +91-98197 27270
                 </a>
@@ -143,7 +137,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-gold-500 flex-shrink-0" />
                 <a 
                   href="tel:+912235747532" 
-                  className="text-white hover:text-gold-500 transition-colors"
+                  className="text-navy-900 hover:text-gold-500 transition-colors"
                 >
                   +91(22) 3574 7532
                 </a>
@@ -152,14 +146,14 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-gold-500 flex-shrink-0" />
                 <a 
                   href="mailto:mail@jurispeak.co.in" 
-                  className="text-white hover:text-gold-500 transition-colors"
+                  className="text-navy-900 hover:text-gold-500 transition-colors"
                 >
                   mail@jurispeak.co.in
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="w-5 h-5 text-gold-500 flex-shrink-0" />
-                <div className="text-white hover:text-gold-500 transition-colors">
+                <div className="text-navy-900 hover:text-gold-500 transition-colors">
                   Mon-Fri: 9:00 AM - 6:00 PM
                 </div>
               </div>
@@ -172,28 +166,18 @@ const Footer = () => {
 
 
       {/* Bottom bar */}
-      <div className="border-t border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 force-white">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-slate-700 text-sm">
+      <div className="border-t border-slate-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 force-navy">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-navy-900">
+            <div className="text-sm text-navy-900">
               © {new Date().getFullYear()} JURISPEAK Advocates & Consultants. All rights reserved.
             </div>
-            <div className="flex flex-wrap items-center space-x-6 text-sm">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-white hover:text-gold-500 transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            <div className="flex flex-wrap items-center space-x-6 text-sm text-navy-900"></div>
           </div>
           
           {/* Legal disclaimer */}
-          <div className="mt-6 pt-6 border-t border-slate-700 force-white">
-            <div className="text-slate-700 text-xs leading-relaxed">
+          <div className="mt-6 pt-6 border-t border-slate-300 force-navy">
+            <div className="text-navy-900 text-xs leading-relaxed">
               <p className="mb-2">
                 <strong>Legal Disclaimer:</strong> The information provided on this website is for general 
                 informational purposes only and does not constitute legal advice. Please consult with a 

@@ -1,13 +1,14 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { 
-  Building2, 
-  Scale, 
-  Users, 
-  Home, 
-  Briefcase, 
-  Lightbulb, 
+import {
+  Building2,
+  Scale,
+  Users,
+  Briefcase,
+  Lightbulb,
+  Gavel,
+  FileText,
   Plus,
   Minus
 } from 'lucide-react';
@@ -19,92 +20,72 @@ const ServicesSection = () => {
   const services = [
     {
       id: 1,
-      icon: Building2,
-      title: 'Corporate Law',
-      shortDescription: 'Comprehensive corporate legal services for businesses of all sizes.',
-      fullDescription: 'We provide end-to-end corporate legal services including company formation, compliance, mergers & acquisitions, corporate governance, and commercial transactions. Our expertise covers everything from startup incorporation to complex corporate restructuring.',
-      features: [
-        'Company incorporation and registration',
-        'Corporate compliance and governance',
-        'Mergers and acquisitions',
-        'Commercial agreements and contracts',
-        'Corporate restructuring',
-        'Board advisory services'
+      icon: Gavel,
+      title: 'Litigation & Dispute Resolution',
+      tagline: 'Strategic advocacy. Practical resolutions.',
+      details: [
+        'We represent clients across diverse civil, commercial, and regulatory disputes before all courts, tribunals, authorities, and quasi-judicial bodies including High Court of Bombay, City Civil Courts, Small Causes Court, Real Estate Regulatory Authority including Appellate Authority, National Company Law Tribunal, National Company Law Appellate Tribunal, District Deputy Registrar, Dy. Registrar (Co-operative Societies), Co-operative Court, Minister of Co-operation, and more.',
+        'Our approach blends deep legal insight with tactical precision to deliver effective outcomes. At Jurispeak, we aim not merely to litigate but to resolve disputes in a manner that safeguards our clients’ long-term interests.'
       ]
     },
     {
       id: 2,
-      icon: Scale,
-      title: 'Civil Litigation',
-      shortDescription: 'Expert representation in civil disputes and court proceedings.',
-      fullDescription: 'Our civil litigation practice covers a wide range of disputes including contract disputes, property matters, commercial litigation, and civil rights cases. We provide strategic representation from pre-litigation through appeals.',
-      features: [
-        'Contract disputes and breach of contract',
-        'Property disputes and real estate litigation',
-        'Commercial litigation',
-        'Civil rights and constitutional matters',
-        'Appellate practice',
-        'Alternative dispute resolution'
+      icon: Building2,
+      title: 'Redevelopment Services for Developers & Societies',
+      tagline: 'Shaping structures, securing communities.',
+      details: [
+        'Jurispeak provides end-to-end legal solutions for redevelopment projects, guiding developers and housing societies through every legal, contractual, and regulatory stage.',
+        'Our expertise ensures smooth execution, statutory compliance, and fair balancing of stakeholder interests. We are deeply attuned to the nuances of Mumbai’s redevelopment landscape, enabling legally sound and progressive outcomes.'
       ]
     },
     {
       id: 3,
-      icon: Users,
-      title: 'Family Law',
-      shortDescription: 'Sensitive and professional family legal services.',
-      fullDescription: 'We handle all aspects of family law with compassion and expertise, including divorce proceedings, child custody, adoption, and family disputes. Our approach prioritizes the best interests of families and children.',
-      features: [
-        'Divorce and separation proceedings',
-        'Child custody and visitation rights',
-        'Adoption and guardianship',
-        'Domestic violence protection',
-        'Property division and alimony',
-        'Family mediation services'
+      icon: FileText,
+      title: 'Conveyancing',
+      tagline: 'Clarity in every clause, confidence in every transaction.',
+      details: [
+        'We handle property documentation, title due diligence, and registration processes with precision and transparency.',
+        'Our conveyancing team ensures every transaction — residential, commercial, or industrial — is legally secure and efficiently executed. With a meticulous approach, we simplify complexities and protect our clients’ ownership rights.'
       ]
     },
     {
       id: 4,
-      icon: Home,
-      title: 'Real Estate Law',
-      shortDescription: 'Complete real estate legal solutions for buyers and sellers.',
-      fullDescription: 'Our real estate practice covers residential and commercial transactions, property disputes, land use issues, and real estate development. We ensure smooth transactions and protect your property interests.',
-      features: [
-        'Property purchase and sale agreements',
-        'Title verification and due diligence',
-        'Property disputes and litigation',
-        'Land use and zoning matters',
-        'Real estate development projects',
-        'Property tax and assessment issues'
+      icon: Scale,
+      title: 'Arbitration',
+      tagline: 'Resolving disputes efficiently, beyond the courtroom.',
+      details: [
+        'Jurispeak represents clients in domestic arbitrations under both institutional and ad-hoc mechanisms.',
+        'Our lawyers combine procedural expertise with practical strategy to achieve fair, timely, and cost-effective resolutions. We focus on protecting business relationships while securing our clients’ commercial objectives.'
       ]
     },
     {
       id: 5,
       icon: Briefcase,
-      title: 'Employment Law',
-      shortDescription: 'Workplace legal issues and employment disputes.',
-      fullDescription: 'We represent both employers and employees in employment-related matters, including wrongful termination, discrimination, wage disputes, and employment contract negotiations.',
-      features: [
-        'Wrongful termination cases',
-        'Employment discrimination',
-        'Wage and hour disputes',
-        'Employment contract review',
-        'Workplace harassment claims',
-        'Labor law compliance'
+      title: 'Corporate Law',
+      tagline: 'Legal strength for business success.',
+      details: [
+        'We advise corporations, partnerships, and start-ups on structuring, governance, and compliance matters.',
+        'Our services cover contracts, transactions, and regulatory frameworks that shape strong business foundations. Jurispeak’s commercially attuned counsel empowers clients to make strategic decisions with legal confidence and clarity.'
       ]
     },
     {
       id: 6,
+      icon: Users,
+      title: 'Succession & Estate Planning',
+      tagline: 'Preserving wealth. Protecting legacy.',
+      details: [
+        'We guide individuals and families in structuring wills, trusts, and succession plans that reflect their values and intentions.',
+        'Our advice ensures a seamless transfer of assets while minimizing disputes and legal hurdles. With sensitivity and foresight, we help clients secure peace of mind for generations ahead.'
+      ]
+    },
+    {
+      id: 7,
       icon: Lightbulb,
       title: 'Intellectual Property',
-      shortDescription: 'Protection and enforcement of intellectual property rights.',
-      fullDescription: 'Our IP practice helps clients protect their innovations, brands, and creative works through patents, trademarks, copyrights, and trade secrets. We also handle IP disputes and enforcement.',
-      features: [
-        'Patent filing and prosecution',
-        'Trademark registration and protection',
-        'Copyright registration and enforcement',
-        'Trade secret protection',
-        'IP licensing agreements',
-        'IP litigation and disputes'
+      tagline: 'Protecting ideas. Powering innovation.',
+      details: [
+        'Jurispeak assists clients in safeguarding their intellectual property through registration, enforcement, and strategic management.',
+        'From trademarks and copyrights to licensing and infringement actions, we offer end-to-end IP solutions. Our approach ensures that creativity and innovation translate into enduring business value.'
       ]
     }
   ];
@@ -141,24 +122,26 @@ const ServicesSection = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="card group"
+              className="card group flex flex-col h-full"
               ref={(el) => {
                 cardRefs.current[service.id] = el;
               }}
             >
-              <div className="flex items-start space-x-4 mb-4">
-                <div className="w-12 h-12 bg-gold-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-6 h-6 text-navy-900" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="heading-4 mb-2">{service.title}</h3>
-                  <p className="body-text">{service.shortDescription}</p>
+              <div className="flex-1">
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gold-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-6 h-6 text-navy-900" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="heading-4 mb-2">{service.title}</h3>
+                    <p className="body-text">{service.tagline}</p>
+                  </div>
                 </div>
               </div>
 
               <button
                 onClick={() => toggleService(service.id)}
-                className="w-full flex items-center justify-between p-3 bg-white hover:bg-white rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold-500"
+                className="mt-auto w-full flex items-center justify-between p-3 bg-white hover:bg-white rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 aria-expanded={expandedService === service.id}
                 aria-controls={`service-${service.id}`}
               >
@@ -177,14 +160,13 @@ const ServicesSection = () => {
                   expandedService === service.id ? 'max-h-[2000px] opacity-100 mt-4' : 'max-h-0 opacity-0'
                 }`}
               >
-                <ul className="space-y-2">
-                  {service.features.map((feature, index) => (
-                    <li key={index} className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-gold-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="body-text">{feature}</span>
-                    </li>
+                <div className="space-y-3">
+                  {service.details.map((paragraph, index) => (
+                    <p key={index} className="body-text text-justify">
+                      {paragraph}
+                    </p>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           ))}
