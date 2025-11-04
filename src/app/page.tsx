@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import AboutSection from '@/components/sections/AboutSection';
+import HeroSection from '@/components/sections/HeroSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TeamSection from '@/components/sections/TeamSection';
 import CareersSection from '@/components/sections/CareersSection';
@@ -12,10 +13,11 @@ export default function Home() {
       <Navigation />
       
       <main id="main-content">
-        {/* About with a law-themed background image and navy overlay */}
-        <div className="relative bg-image-law">
-          <div className="absolute inset-0 bg-navy-900/35" />
-          <div className="relative theme-blue theme-blue-light">
+        <HeroSection />
+        
+        {/* About with custom background color */}
+        <div className="relative bg-[#2a3b6c]">
+          <div className="relative">
             <AboutSection />
           </div>
         </div>
@@ -23,17 +25,18 @@ export default function Home() {
         <div className="bg-[rgba(129,125,123,0.20)]">
           <ServicesSection />
         </div>
-        <div className="bg-navy-900/90">
-          <TeamSection />
-        </div>
-        <div className="relative bg-image-law">
-          <div className="absolute inset-0 bg-navy-900/35" />
-          <div className="relative theme-blue theme-blue-light">
-            <CareersSection />
+        <div className="relative bg-[#2a3b6c]">
+          <div className="relative">
+            <TeamSection />
           </div>
         </div>
         <div className="bg-[rgba(129,125,123,0.20)]">
-          <ContactSection />
+          <CareersSection />
+        </div>
+        <div className="relative bg-[#2a3b6c]">
+          <div className="relative">
+            <ContactSection />
+          </div>
         </div>
       </main>
       

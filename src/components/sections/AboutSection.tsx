@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { Users, Award, MessageSquare, TrendingUp, Scale, Shield, Clock } from 'lucide-react';
 
 const AboutSection = () => {
@@ -61,19 +60,21 @@ const AboutSection = () => {
   const valuePillars = [
     {
       icon: Users,
-      title: 'Client First',
-      // eslint-disable-next-line react/no-unescaped-entities
-      description: 'We prioritize our clients\' needs and maintain open communication throughout every case, ensuring they feel supported and informed.'
+      title: 'Insight over Instinct',
+      description:
+        "Our strategies are built on thorough research, data-backed analysis, and sectoral insight, particularly in complex real estate and redevelopment matters where detail defines success."
     },
     {
       icon: Award,
-      title: 'Deep Expertise',
-      description: 'Our team brings extensive legal knowledge and experience to every case, staying current with evolving laws and regulations.'
+      title: 'Partnership, not Patronage',
+      description:
+       "We see every client relationship as a partnership built on trust, collaboration, and shared success, not just a mere representation."
     },
     {
       icon: MessageSquare,
-      title: 'Clear Communication',
-      description: 'We believe in transparent, jargon-free communication that helps clients understand their legal situation and options clearly.'
+      title: 'Humanity at the Core',
+      description: 
+      "Beyond the cases and contracts, we never lose sight of people, their goals, their concerns, and the impact of every decision we help shape."
     }
   ];
 
@@ -104,23 +105,46 @@ const AboutSection = () => {
     }
   ];
 
+  const whyChooseItems = [
+    {
+      icon: Shield,
+      title: 'Outcome Oriented',
+      description:
+        'Successful legal practice with hundreds of satisfied clients and successful case outcomes.'
+    },
+    {
+      icon: Award,
+      title: 'Expert Qualifications',
+      description:
+        'Our team holds advanced degrees including M.B.A. (Finance) and L.L.B., ensuring comprehensive legal and business expertise.'
+    },
+    {
+      icon: Users,
+      title: 'Personalized Service',
+      description:
+        'Every client receives individual attention and customized legal strategies tailored to their specific needs and circumstances.'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Continuous Growth',
+      description:
+        'We stay current with evolving legal landscapes and continuously enhance our skills to serve clients better.'
+    }
+  ];
+
   return (
     <section id="about" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16 force-white">
           <h2 className="heading-2 mb-3">About Us</h2>
-          <p className="body-text italic mb-4">&ldquo;The Constitution is not a mere lawyer's document; it is a vehicle of life, and its spirit is always the spirit of age.&rdquo; &mdash; Dr. B. R. Ambedkar</p>
-          <p className="body-text max-w-3xl mx-auto">
-            We deliver clear, business‑aligned legal advice across corporate, civil and commercial matters.
-            Our team combines deep expertise with pragmatic strategy to help you move forward with confidence.
-          </p>
-        </div>
-
-        {/* Law imagery slideshow + text (inside grid, like Mission) */}
-        <div className="mb-16">
-          <div className="bg-white rounded-2xl overflow-hidden">
-            <SlideshowGrid />
+          <div className="max-w-3xl mx-auto space-y-6 text-justify">
+            <p className="body-text">
+              Established in 2020, Jurispeak is a Mumbai-based law firm recognized for its steadfast dedication to excellence, professionalism, and ethical practice. In a short span of time, Jurispeak has cultivated enduring associations with a diverse and distinguished clientele, a reflection of its strong culture of delivering superior, client-focused legal services.
+            </p>
+            <p className="body-text">
+              At Jurispeak, we hold the conviction that outstanding legal advice stems from a commitment to continuous learning, teamwork, and agility. Our professionals are mentored and empowered to proactively address the dynamic challenges faced by our clients in an ever-evolving legal and commercial landscape. By harmonizing traditional legal wisdom with modern strategic insight, Jurispeak consistently delivers innovative, pragmatic, and outcome-driven solutions across a wide range of practice areas.
+            </p>
           </div>
         </div>
 
@@ -198,51 +222,16 @@ const AboutSection = () => {
         <div className="mt-16 text-center force-white">
           <div className="max-w-4xl mx-auto">
             <h3 className="heading-3 mb-6">Why Choose JURISPEAK?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Shield className="w-6 h-6 text-gold-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-navy-900 mb-2">Proven Track Record</h4>
-                    <p className="body-text">
-                      Over 15 years of successful legal practice with hundreds of satisfied clients 
-                      and successful case outcomes.
-                    </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-start">
+              {whyChooseItems.map((item, index) => (
+                <div key={index} className="flex items-start space-x-3">
+                  <item.icon className="w-6 h-6 text-gold-500 mt-1 flex-shrink-0" />
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-navy-900">{item.title}</h4>
+                    <p className="body-text text-justify">{item.description}</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <Award className="w-6 h-6 text-gold-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-navy-900 mb-2">Expert Qualifications</h4>
-                    <p className="body-text">
-                      Our team holds advanced degrees including M.B.A. (Finance) and L.L.B., 
-                      ensuring comprehensive legal and business expertise.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Users className="w-6 h-6 text-gold-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-navy-900 mb-2">Personalized Service</h4>
-                    <p className="body-text">
-                      Every client receives individual attention and customized legal strategies 
-                      tailored to their specific needs and circumstances.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <TrendingUp className="w-6 h-6 text-gold-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-navy-900 mb-2">Continuous Growth</h4>
-                    <p className="body-text">
-                      We stay current with evolving legal landscapes and continuously enhance 
-                      our skills to serve clients better.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -252,81 +241,3 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
-
-// Slideshow with image (left) and text (right), all inside one grid
-const SlideshowGrid = () => {
-  const slides = [
-    {
-      src: '/image.jpg',
-      title: 'Legal Advocacy You Can Trust',
-      text:
-        'Decades of experience advocating for clients across corporate, civil, and commercial matters with clarity and precision.'
-    },
-    {
-      src: '/image_2.jpg',
-      title: 'Research-Driven Strategy',
-      text:
-        'Thorough legal research and preparation inform every step — from advisory to litigation — so you can move with confidence.'
-    },
-    {
-      src: '/image_5.jpg',
-      title: 'Client-Focused Counsel',
-      text:
-        'We tailor our approach to your goals with transparent communication, practical advice, and professional excellence.'
-    },
-    {
-      src: '/image_4.jpg',
-      title: 'Practical, Business‑Aligned Advice',
-      text:
-        'We align legal strategy with your commercial objectives, balancing risk and opportunity to drive better outcomes.'
-    }
-  ];
-
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 4000);
-    return () => clearInterval(id);
-  }, [slides.length]);
-
-  const current = slides[index];
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      {/* Left: image slideshow (fills left half with no visible borders) */}
-      <div className="relative w-full h-56 sm:h-64 md:h-full md:min-h-[18rem] lg:min-h-[22rem] overflow-hidden">
-        <Image
-          key={`fg-${index}`}
-          src={current.src}
-          alt="Law-related imagery for JURISPEAK"
-          fill
-          sizes="(min-width:768px) 50vw, 100vw"
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      {/* Right: text for the current slide */}
-      <div className="p-6 md:p-10 flex flex-col justify-center">
-        <h4 className="heading-3 mb-4 text-navy-900">{current.title}</h4>
-        <p className="body-large text-slate-700 mb-6">{current.text}</p>
-
-        {/* Dots */}
-        <div className="flex items-center space-x-2">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => setIndex(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-opacity ${
-                i === index ? 'bg-gold-500 opacity-100' : 'bg-slate-300 opacity-70'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};

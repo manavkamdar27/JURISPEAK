@@ -127,10 +127,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 force-navy">
+    <section id="contact" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 force-white">
           <h2 className="heading-2 mb-6">Contact Us</h2>
           <p className="body-large max-w-3xl mx-auto">
             Ready to discuss your legal needs? Get in touch with our experienced team 
@@ -140,7 +140,7 @@ const ContactSection = () => {
 
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-2xl p-8 text-slate-700">
-              <h3 className="heading-3 mb-6 force-navy">Send Us a Message</h3>
+              <h3 className="heading-3 mb-6 text-navy-900">Send Us a Message</h3>
 
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-white border border-slate-200 rounded-lg flex items-center space-x-3">

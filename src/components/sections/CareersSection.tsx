@@ -195,9 +195,9 @@ const CareersSection = () => {
 
   return (
     <section id="careers" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 force-navy">
         {/* Section header */}
-        <div className="text-center mb-16 force-white">
+        <div className="text-center mb-16">
           <h2 className="heading-2 mb-6">Join Our Team</h2>
           <p className="body-large max-w-3xl mx-auto">
             We&apos;re always looking for talented legal professionals to join our growing team. 
@@ -208,7 +208,7 @@ const CareersSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left column - Company culture and benefits */}
           <div>
-            <div className="mb-8 force-white">
+            <div className="mb-8">
               <h3 className="heading-3 mb-6">Why Work With Us?</h3>
               <p className="body-text mb-6">
                 At JURISPEAK Advocates & Consultants, we believe that our people are our greatest asset. 
@@ -217,7 +217,7 @@ const CareersSection = () => {
               </p>
             </div>
 
-            <div className="space-y-6 mb-8 force-white">
+            <div className="space-y-6 mb-8">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
